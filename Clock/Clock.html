@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Clock.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="clock-form">
+      <div class="clock" id="clock">00:00</div>
+      <div class="clock-day" id="clock-day">1월 1일 월요일</div>
+    </div>
+  </body>
+  <script>
+    var timeTarget = document.getElementById("clock");
+    var dayTarget = document.getElementById("clock-day");
+    function Clock() {
+      var date = new Date();
+      var month = date.getMonth();
+      var clockDate = date.getDate();
+      var day = date.getDay();
+      var week = ["일", "월", "화", "수", "목", "금", "토"];
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      timeTarget.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+        minutes < 10 ? `0${minutes}` : minutes
+      }:${seconds < 10 ? `0${seconds}` : seconds}`;
+      dayTarget.innerText = `${month + 1}월 ${clockDate}일 ${week[day]}요일`;
+    }
+
+    function init() {
+      Clock();
+
+      setInterval(Clock, 1000);
+    }
+
+    init();
+  </script>
+</html>

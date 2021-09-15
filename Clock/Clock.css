@@ -1,0 +1,15 @@
+body {
+  margin: 0%;
+}
+
+.clock-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.clock {
+  font-size: 3rem;
+}
